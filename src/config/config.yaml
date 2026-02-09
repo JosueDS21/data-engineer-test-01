@@ -1,0 +1,42 @@
+# Pipeline configuration - no hardcoded paths or credentials
+
+project:
+  name: airbnb-etl
+  version: "1.0"
+
+paths:
+  data_dir: "data"
+  listings_file: "listings.csv"
+  reviews_file: "reviews.csv"
+  output_dir: "output"
+  logs_dir: "logs"
+  quarantine_dir: "output/quarantine"
+
+data_quality:
+  price_min: 0
+  price_max: 100000
+  latitude_min: -90
+  latitude_max: 90
+  longitude_min: -180
+  longitude_max: 180
+  availability_365_max: 365
+  required_listing_columns:
+    - id
+    - host_id
+    - neighbourhood
+    - room_type
+  required_review_columns:
+    - listing_id
+    - date
+
+pricing:
+  threshold_pct: 0.15  # for pricing intelligence (under/over priced)
+  tier_bounds:  # price tier classification (nightly)
+    budget: 100
+    mid: 200
+    premium: 500
+    luxury: 999999
+
+encoding:
+  default: "utf-8"
+  fallback: "utf-8-sig"

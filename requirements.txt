@@ -1,0 +1,10 @@
+# ETL pipeline
+pandas>=2.0
+pyyaml>=6.0
+python-dotenv>=1.0
+
+# SQL Server
+pyodbc>=4.0
+
+# Tests
+pytest>=7.0
